@@ -1,0 +1,72 @@
+<form class="form-horizontal" *ngIf="schools"> 
+  <div class="form-group">
+    <label for="name-box" class="col-sm-2 control-label">■ 유권자 이름</label>
+    <div class="col-sm-10 control-label">
+      <p class="text-left" *ngIf="user_name"><b>{{user_name}}</b></p>
+      <p class="text-left" *ngIf="!user_name">페이스북 계정에서 자동으로 추출됩니다.</p>
+    </div>
+  </div>
+
+  <div class="form-group"
+       [class.has-feedback]="!school && invalidForm"
+       [class.has-error]="!school && invalidForm">
+    <label for="search-box" class="col-sm-2 control-label">■ 대학명 검색</label>
+    <div class="col-sm-10">
+      <input id="search-box" class="form-control" placeholder="대학명을 입력하세요"
+             (keyup)="search(searchBox.value)"
+             #searchBox />
+      <span class="glyphicon glyphicon-remove form-control-feedback"
+            *ngIf="!school && invalidForm"></span>
+      <p></p>
+      <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-info"
+                *ngIf="school">
+          {{school.name}}
+        </button>
+        <button type="button" class="list-group-item"
+                 *ngFor="let school of searchResults" (click)="onSchoolChange(school, searchBox)">
+          {{school.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group"
+       [class.has-error]="!image && invalidForm">
+    <label for="image-box" class="col-sm-2 control-label">■ 인증샷 등록</label>
+    <div class="col-sm-10">
+      <div id="image-fake-box" class="form-control"
+           *ngIf="!image"
+           (click)="imageBox.click()">
+        <span class="glyphicon glyphicon-picture"></span>
+      </div>
+      <img id="image-viewer-box" class="form-control"
+           *ngIf="image"
+           [src]="imageUrl"
+           (click)="imageBox.click()">
+
+      <input type="file" id="image-box" class="hidden"
+             (change)="onImageChange(imageBox)"
+             #imageBox />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="comment-box" class="col-sm-2 control-label">■ 한마디 작성</label>
+    <div class="col-sm-10">
+      <textarea id="comment-box" class="form-control" rows=6 style="resize: none;" placeholder="(선택) 간단한 한마디를 남길 수 있습니다"
+                (keyup)="onCommentChange(commentBox)"
+                #commentBox></textarea>
+    </div>
+  </div>
+  
+  <hr />
+
+  <button type="button" class="btn btn-primary btn-lg btn-block btn-margin"
+          (click)="onSubmit()"
+          #submitButton>
+    <span *ngIf="user_name">'{{user_name}}'으로 등록하기</span>
+    <span *ngIf="!user_name">페이스북 로그인 후 등록하기</span>
+  </button>
+</form>
+<div *ngIf="!schools">Loading...</div>

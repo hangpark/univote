@@ -1,0 +1,7 @@
+Django==1.11
+django-cors-headers==2.0.2
+django-ipware==1.1.6
+djangorestframework==3.6.2
+olefile==0.44
+Pillow==4.1.1
+pytz==2017.2

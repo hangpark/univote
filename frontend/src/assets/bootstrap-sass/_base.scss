@@ -1,0 +1,100 @@
+#header {
+  margin-bottom: 18px;
+  background-color: $gray-base;
+  color: #fff;
+  font-size: $font-size-h3;
+  span {
+    color: #f2eb32;
+  }
+  .pull-right {
+    font-size: $font-size-small;
+  }
+}
+
+#info b {
+  color: $brand-primary;
+}
+
+img.panel-primary {
+  width: 100%;
+}
+
+.panel-primary {
+  border-width: 2px;
+  .panel-body .text-center {
+    margin: 0 auto;
+    .item {
+      display: inline-block;
+      vertical-align: middle;
+      &.item-person {
+        margin: 0 32px;
+        font-size: $font-size-h2;
+        font-weight: bold; 
+      }
+      &.item-school {
+        .school-name {
+          font-size: $font-size-h4;
+          font-weight: bold;
+        }
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+  .panel-heading, .panel-footer {
+    border-color: $table-border-color;
+    background-color: #fff;
+    color: $brand-primary;
+    font-size: $font-size-small;
+    font-weight: bold;
+  }
+  .panel-footer {
+    cursor: pointer;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+.panel table tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#image-fake-box {
+  width: 140px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+  font-size: $font-size-h3;
+  cursor: pointer;
+}
+
+#image-viewer-box {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn-margin {
+  margin-bottom: 20px;
+}
+
+#footer {
+  margin-top: 28px;
+  padding-bottom: 28px;
+  background-color: #fff;
+  font-size: 10px;
+  .footer-layout {
+    width: 100%;
+    padding: 22px 22px 0;
+  }
+  table:first-child {
+    margin-right: 36px;
+  }
+  td:first-child {
+    padding-right: 20px;
+  }
+}

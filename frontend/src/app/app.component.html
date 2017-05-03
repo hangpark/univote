@@ -1,0 +1,79 @@
+<div id="header" class="container-fluid">
+  <div class="pull-left">
+    <a routerLink="/"><img src="/assets/images/logo.png" /><span>제19대 대선</span> 전국 대학생 투표 대항전</a>
+  </div>
+  <div class="pull-right" style="display: table;">
+    <div class="text-right" style="display: table-cell; vertical-align: middle; height: 76px;">
+      <a href="https://www.facebook.com/kaistusc/" target="_blank">제31대 KAIST 학부 총학생회 "품"</a><br />
+      <a href="https://www.facebook.com/univnet/" target="_blank">2017 대선 대학생 네트워크</a>
+    </div>
+  </div>
+</div>
+
+<div id="contents">
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div id="info" class="panel-body">
+        제19대 대통령 선거에서 대학생들의 투표를 독려하고자 <b>대학생 투표 대항전</b>을 진행합니다. 투표 인증샷을 <b>페이스북</b>에 공유해 우리학교 랭킹을 높여보세요! 많은 참여와 공유 부탁드립니다! <b *ngIf="totalNum">현재까지 총 {{totalNum}}명이 참여하였습니다!</b>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container-fluid" *ngIf="notice">
+    <div class="alert alert-danger"><b>안내:</b> {{notice}}</div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="col-sm-4">
+        <app-rank-list></app-rank-list>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <app-image-gallery></app-image-gallery>
+  </div>
+</div>
+<div id="footer" class="container-fluid clearfix">
+  <div class="footer-layout">
+    <table class="pull-left">
+      <tr>
+        <td><b>■ 주　최</b></td>
+        <td><a href="https://www.facebook.com/kaistusc/">제31대 KAIST 학부 총학생회 "품"</a></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><a href="https://www.facebook.com/univnet/">2017 대선 대학생 네트워크</a></td>
+      </tr>
+      <tr>
+        <td><b>■ 개　발</b></td>
+        <td><a href="https://github.com/hangpark/">박항</a> (<a href="mailto:hangpark@kaist.ac.kr">hangpark@kaist.ac.kr</a>)</td>
+      </tr>
+      <tr>
+        <td><b>■ 디자인</b></td>
+        <td>박병훈 (<a href="mailto:asia@kaist.ac.kr">asia@kaist.ac.kr</a>)</td>
+      </tr>
+    </table>
+    <table class="pull-left">
+      <tr>
+        <td><b>■ 유의사항</b></td>
+        <td>선거법 위반 소지가 있는 사진은 촬영 및 업로드하지 말아주세요.</td>
+      </tr>
+      <tr><td></td><td>
+          손가락으로 특정 후보 기호를 나타낸 사진은 선거법에 위반되지 않습니다.
+      </td></tr>
+      <tr><td></td><td>
+          투표용지를 촬영하여 올릴 시 선거법에 위반됩니다.
+      </td></tr>
+      <tr><td></td><td>
+          기타 부적절한 사진 및 코멘트 개제 시 관리자 권한으로 삭제하겠습니다.
+      </td></tr>
+      <tr><td></td><td>
+          삭제요청, 학교 추가 등 관련 문의사항은 <a href="mailto:kaistusc@kaist.ac.kr">kaistusc@kaist.ac.kr</a>로 메일 주시기 바랍니다.
+      </td></tr>
+    </table>
+  </div>
+</div>

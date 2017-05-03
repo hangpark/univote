@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">투표율 랭킹</div>
+  <div class="panel-body" *ngIf="!schools.orig">Loading...</div>
+  <table class="table" *ngIf="schools.orig">
+    <tbody>
+      <tr *ngFor="let school of schools.vote_rate.list | slice:0:schools.vote_rate.counter">
+        <td>
+          <img src="/assets/images/rank_{{getRanking(school, 'vote_rate')}}.png"
+               *ngIf="getRanking(school, 'vote_rate') <= 3" />
+          <span *ngIf="getRanking(school, 'vote_rate') > 3">{{getRanking(school, 'vote_rate')}}등</span>
+        </td>
+        <td>{{school.name}}</td>
+        <td>{{school.vote_rate | percent:'1.2-2'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-footer text-center"
+       *ngIf="schools.orig && schools.vote_rate.counter<schools.orig.length"
+       (click)="moreSchools('vote_rate')">
+    더 보기
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">투표수 랭킹</div>
+  <div class="panel-body" *ngIf="!schools.orig">Loading...</div>
+  <table class="table" *ngIf="schools.orig">
+    <tbody>
+      <tr *ngFor="let school of schools.vote_num.list | slice:0:schools.vote_num.counter">
+        <td>
+          <img src="/assets/images/rank_{{getRanking(school, 'vote_num')}}.png"
+               *ngIf="getRanking(school, 'vote_num') <= 3" />
+          <span *ngIf="getRanking(school, 'vote_num') > 3">{{getRanking(school, 'vote_num')}}등</span>
+        </td>
+        <td>{{school.name}}</td>
+        <td>{{school.vote_num}}명</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="panel-footer text-center"
+       *ngIf="schools.orig && schools.vote_num.counter<schools.orig.length"
+       (click)="moreSchools('vote_num')">
+    더 보기
+  </div>
+</div>
