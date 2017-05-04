@@ -16,13 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from .views import SchoolList
-from .views import VoteList
-from .views import VoteDetail
+from .views import SchoolList, VoteList, VoteDetail
+from .bots import PreRenderVoteDetail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/schools/$', SchoolList.as_view()),
     url(r'^api/votes/$', VoteList.as_view()),
     url(r'^api/votes/(?P<user_id>[0-9]+)/$', VoteDetail.as_view()),
+    url(r'^(?P<user_id>[0-9]+)/$', PreRenderVoteDetail.as_view()),
 ]
