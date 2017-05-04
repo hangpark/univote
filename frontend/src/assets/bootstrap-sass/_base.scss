@@ -42,13 +42,6 @@ img.panel-primary {
       }
     }
   }
-  .panel-heading, .panel-footer {
-    border-color: $table-border-color;
-    background-color: #fff;
-    color: $brand-primary;
-    font-size: $font-size-small;
-    font-weight: bold;
-  }
   .panel-footer {
     cursor: pointer;
     &:hover {
@@ -57,6 +50,28 @@ img.panel-primary {
   }
 }
 
+.panel {
+  .panel-heading, .panel-footer {
+    border-color: $table-border-color;
+    background-color: #fff;
+    color: $brand-primary;
+    font-size: $font-size-small;
+    font-weight: bold;
+  }
+}
+
+#gallery {
+  a {
+    margin: 8px;
+    border: 1px solid #888;
+    border-radius: 4px;
+  }
+  img {
+    max-width: 100%;
+    max-height: 140px;
+  }
+}
+ 
 .panel table tbody tr td {
   text-align: center;
   vertical-align: middle;

@@ -13,6 +13,7 @@ import { RankListComponent } from './rank-list/rank-list.component';
 import { ImageGalleryComponent } from './image-gallery/image-gallery.component';
 import { SchoolService } from './school.service';
 import { VoteService } from './vote.service';
+import { RandomVotesService } from './random-votes.service';
 import { NoticeService } from './notice.service';
 
 @NgModule({
@@ -33,7 +34,7 @@ import { NoticeService } from './notice.service';
       {path: ':user_id', component: VoteItemViewComponent}
     ])
   ],
-  providers: [SchoolService, VoteService, NoticeService],
+  providers: [SchoolService, VoteService, RandomVotesService, NoticeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,9 @@
+<div id="gallery" class="panel panel-default">
+  <div class="panel-heading">갤러리</div>
+  <div class="panel-body clearfix">
+    <a routerLink="/{{vote.user_id}}" class="pull-left"
+       *ngFor="let vote of votes">
+      <img src="{{vote.image}}" alt="{{vote.user_name}}">
+    </a>
+  </div>
+</div>
