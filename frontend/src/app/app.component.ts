@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { FacebookService, InitParams, LoginResponse } from 'ngx-facebook';
 
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
   notice: string;
 
   constructor(
+    private router: Router,
     private fb: FacebookService,
     private schoolService: SchoolService,
     private noticeService: NoticeService
@@ -54,6 +56,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     this.fetchSchools();
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd))
+        return;
+      window.scrollTo(0, 0)
+    });
 
   }
 
