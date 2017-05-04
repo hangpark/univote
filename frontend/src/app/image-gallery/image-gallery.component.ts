@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { Vote } from '../vote';
 import { RandomVotesService } from '../random-votes.service';
@@ -11,11 +12,8 @@ import { RandomVotesService } from '../random-votes.service';
 export class ImageGalleryComponent implements OnInit {
   votes: Vote[];
 
-  constructor(private randomVotesService: RandomVotesService) {
+  constructor(private router: Router, private randomVotesService: RandomVotesService) {
 
-    randomVotesService.fetchVotes().then(votes => {
-      randomVotesService.votes = votes;
-    });
     randomVotesService.votes$.subscribe(votes => {
       this.votes = votes;
     });
@@ -23,6 +21,15 @@ export class ImageGalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd))
+        return;
+      this.randomVotesService.fetchVotes().then(votes => {
+        this.randomVotesService.votes = votes;
+      });
+    });
+
   }
 
 }
