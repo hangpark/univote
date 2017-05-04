@@ -40,6 +40,14 @@ class VoteList(ListAPIView):
         return self.list(request, *args, **kwargs)
 
 
+class VoteListRandom(ListAPIView):
+    queryset = Vote.objects.order_by('?')[:8]
+    serializer_class = VoteSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+
 class VoteDetail(RetrieveAPIView, CreateAPIView):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer

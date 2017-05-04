@@ -1,11 +1,4 @@
 <div *ngIf="vote && school">
-  <meta property="og:url" content="{{getAbsolutePath()}}">
-  <meta property="og:title" content="전국 대학생 투표 대항전">
-  <meta property="og:description" content="제19대 대선을 맞아 '전국 대학생 투표 대항전'을 진행합니다! 현재 {{school.name}} 투표율 {{getRanking(school, 'vote_rate')}}위, 투표수 {{getRanking(school, 'vote_num')}}위입니다.">
-  <meta property="og:image" content="{{vote.image}}">
-  <meta property="og:locale" content="ko_KR">
-  <meta property="fb:app_id" content="108176659752108">
-
   <div class="panel panel-primary">
     <div class="panel-body">
       <div class="text-center">

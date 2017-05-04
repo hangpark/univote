@@ -8,6 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-98435621-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
   <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </head>
 <body>
@@ -22,6 +32,62 @@
   }(document, 'script', 'facebook-jssdk'));
   </script>
 
-  <div id="wrap"><app-root></app-root></div>
+  <div id="wrap">
+    <div id="header" class="container-fluid">
+      <div class="pull-left">
+        <a routerLink="/"><img src="/assets/images/logo.png" /><span>제19대 대선</span> 전국 대학생 투표 대항전</a>
+      </div>
+      <div class="pull-right" style="display: table;">
+        <div class="text-right" style="display: table-cell; vertical-align: middle; height: 76px;">
+          <a href="https://www.facebook.com/kaistusc/" target="_blank">제31대 KAIST 학부 총학생회 "품"</a><br />
+          <a href="https://www.facebook.com/univnet/" target="_blank">2017 대선 대학생 네트워크</a>
+        </div>
+      </div>
+    </div>
+    <div id="contents"><app-root></app-root></div>
+    <div id="footer" class="container-fluid clearfix">
+      <div class="footer-layout">
+        <table class="pull-left">
+          <tr>
+            <td><b>■ 주　최</b></td>
+            <td><a href="https://www.facebook.com/kaistusc/">제31대 KAIST 학부 총학생회 "품"</a></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><a href="https://www.facebook.com/univnet/">2017 대선 대학생 네트워크</a></td>
+          </tr>
+          <tr>
+            <td><b>■ 개　발</b></td>
+            <td><a href="https://github.com/hangpark/">박항</a> (<a href="mailto:hangpark@kaist.ac.kr">hangpark@kaist.ac.kr</a>)</td>
+          </tr>
+          <tr>
+            <td><b>■ 디자인</b></td>
+            <td>박병훈 (<a href="mailto:asia@kaist.ac.kr">asia@kaist.ac.kr</a>)</td>
+          </tr>
+        </table>
+        <table class="pull-left">
+          <tr>
+            <td><b>■ 유의사항</b></td>
+            <td>선거법 위반 소지가 있는 사진은 촬영 및 업로드하지 말아주세요.</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>손가락으로 특정 후보 기호를 나타낸 사진은 선거법에 위반되지 않습니다.</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>투표용지를 촬영하여 올릴 시 선거법에 위반됩니다.</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>기타 부적절한 사진 및 코멘트 개제 시 관리자 권한으로 삭제하겠습니다.</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>삭제요청, 학교 추가 등 관련 문의사항은 <a href="mailto:kaistusc@kaist.ac.kr">kaistusc@kaist.ac.kr</a>로 메일 주시기 바랍니다.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
 </body>
 </html>

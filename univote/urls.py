@@ -15,14 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.views.generic.base import TemplateView
 
-from .views import SchoolList, VoteList, VoteDetail
+from .views import SchoolList, VoteList, VoteListRandom, VoteDetail
 from .bots import PreRenderVoteDetail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/schools/$', SchoolList.as_view()),
     url(r'^api/votes/$', VoteList.as_view()),
+    url(r'^api/votes/random/$', VoteListRandom.as_view()),
     url(r'^api/votes/(?P<user_id>[0-9]+)/$', VoteDetail.as_view()),
-    url(r'^(?P<user_id>[0-9]+)/$', PreRenderVoteDetail.as_view()),
+    url(r'^bot/$', TemplateView.as_view(template_name='univote/pre_render_main.html')),
+    url(r'^bot/(?P<user_id>[0-9]+)/$', PreRenderVoteDetail.as_view()),
 ]
