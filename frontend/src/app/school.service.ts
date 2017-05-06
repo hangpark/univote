@@ -9,7 +9,8 @@ import { School } from './school';
 @Injectable()
 export class SchoolService {
   private _schools$ = new BehaviorSubject<School[]>(undefined);
-  private schoolsUrl = "https://univote.kr/api/schools/";
+  private _school$ = new BehaviorSubject<School>(undefined);
+  private schoolUrl = "https://univote.kr/api/schools/";
 
   constructor(private http: Http) { }
 
@@ -25,9 +26,21 @@ export class SchoolService {
 
   }
 
+  set school(school: School) {
+
+    this._school$.next(school);
+
+  }
+
+  get school$(): Observable<School> {
+
+    return this._school$;
+
+  }
+
   fetchSchools(): Promise<School[]> {
 
-    return this.http.get(this.schoolsUrl)
+    return this.http.get(this.schoolUrl)
       .toPromise()
       .then(response => {
         return response.json().map(obj => new School().fromJson(obj));
@@ -35,6 +48,14 @@ export class SchoolService {
       .catch(error => {
         Promise.reject(error.message || error);
       });
+
+  }
+
+  fetchSchool(id: number): Promise<School> {
+
+    return this.http.get(this.schoolUrl + id + "/")
+      .toPromise()
+      .then(response => new School().fromJson(response.json()))
 
   }
 

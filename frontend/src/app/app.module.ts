@@ -15,6 +15,7 @@ import { SchoolService } from './school.service';
 import { VoteService } from './vote.service';
 import { RandomVotesService } from './random-votes.service';
 import { NoticeService } from './notice.service';
+import { SchoolViewComponent } from './school-view/school-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NoticeService } from './notice.service';
     VoteItemViewComponent,
     VoteItemAddComponent,
     RankListComponent,
-    ImageGalleryComponent
+    ImageGalleryComponent,
+    SchoolViewComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { NoticeService } from './notice.service';
     FacebookModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component: VoteItemAddComponent},
-      {path: ':user_id', component: VoteItemViewComponent}
+      {path: ':user_id', component: VoteItemViewComponent},
+      {path: ':schools/:id', component: SchoolViewComponent}
     ])
   ],
   providers: [SchoolService, VoteService, RandomVotesService, NoticeService],

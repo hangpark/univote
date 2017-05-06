@@ -9,6 +9,8 @@ import { Vote } from '../vote';
 import { VoteService } from '../vote.service';
 import { NoticeService } from '../notice.service';
 
+import { getRanking } from '../utils';
+
 @Component({
   selector: 'app-vote-item-view',
   templateUrl: './vote-item-view.component.html',
@@ -44,13 +46,7 @@ export class VoteItemViewComponent implements OnInit {
 
   getRanking(school: School, sortBy: string): number {
     
-    return this.schools.concat().sort((s1, s2) => {
-      if (s1[sortBy] < s2[sortBy])
-        return 1;
-      if (s1[sortBy] > s2[sortBy])
-        return -1;
-      return 0;
-    }).map(s => s[sortBy]).indexOf(school[sortBy]) + 1;
+    return getRanking(school, this.schools, sortBy);
 
   }
 

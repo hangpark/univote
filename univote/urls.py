@@ -17,12 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 
-from .views import SchoolList, VoteList, VoteListRandom, VoteDetail
+from .views import SchoolList, SchoolVoteList, VoteList, VoteListRandom, VoteDetail
 from .bots import PreRenderVoteDetail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/schools/$', SchoolList.as_view()),
+    url(r'^api/schools/(?P<id>[0-9]+)/$', SchoolVoteList.as_view()),
     url(r'^api/votes/$', VoteList.as_view()),
     url(r'^api/votes/random/$', VoteListRandom.as_view()),
     url(r'^api/votes/(?P<user_id>[0-9]+)/$', VoteDetail.as_view()),

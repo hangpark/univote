@@ -5,7 +5,7 @@
         <img src="/assets/images/my_vote.png" class="item">
         <div class="item item-person">{{vote.user_name}}</div>
         <div class="item item-school text-left">
-          <p class="school-name">{{school.name}}</p>
+          <p class="school-name"><a routerLink="/schools/{{school.id}}">{{school.name}}</a></p>
           <p class="school-stat">:: 투표율 {{getRanking(school, 'vote_rate')}}위 ({{school.vote_rate | percent:'1.2-2'}})</p>
           <p class="school-stat">:: 투표수 {{getRanking(school, 'vote_num')}}위 ({{school.vote_num}}명)</p>
         </div>
