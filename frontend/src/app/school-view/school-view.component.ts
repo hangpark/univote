@@ -25,7 +25,7 @@ export class SchoolViewComponent implements OnInit {
   ) {
 
     schoolService.school$.subscribe(school => {
-      this.vote_counter = 1;
+      this.vote_counter = 5;
       this.school = school;
     });
     schoolService.schools$.subscribe(schools => {
@@ -42,7 +42,7 @@ export class SchoolViewComponent implements OnInit {
 
   moreVotes(): void {
 
-    this.vote_counter += 10;
+    this.vote_counter += 5;
 
   }
 
