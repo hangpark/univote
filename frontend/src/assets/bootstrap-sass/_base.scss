@@ -97,6 +97,24 @@ img.panel-primary {
   margin-bottom: 20px;
 }
 
+.vote-list {
+  padding-left: 25px;
+  padding-right: 25px;
+  img {
+    border: 1px solid #888;
+    border-radius: 4px;
+    max-width: 100%;
+    max-height: 100px;
+  }
+}
+
+.link {
+  cursor: pointer;
+  &:hover {
+    background-color: #eee;
+  }
+}
+
 #footer {
   margin-top: 28px;
   padding-bottom: 28px;

@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+  <div class="panel-body" *ngIf="school">
+    <div class="text-center">
+      <img src="/assets/images/my_vote.png" class="item">
+      <div class="item item-person">{{school.name}}</div>
+      <div class="item item-school text-left">
+        <p class="school-stat">:: 투표율 {{getRanking('vote_rate')}}위 ({{school.vote_rate | percent:'1.2-2'}})</p>
+        <p class="school-stat">:: 투표수 {{getRanking('vote-num')}}위 ({{school.vote_num}}명)</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body" *ngIf="!school">Loading...</div>
+</div>
+
+<div class="panel panel-default">
+  <ul class="list-group" *ngIf="school">
+    <a routerLink="/{{vote.user_id}}" class="vote-list list-group-item clearfix"
+       *ngFor="let vote of school.vote_set | slice:0:vote_counter">
+      <div class="pull-left">
+        <h3><b>{{vote.user_name}}</b> <small>학우</small></h3>
+        <p>{{vote.comment}}</p>
+      </div>
+      <img src="{{vote.image}}" alt="{{vote.user_name}}" class="pull-right">
+    </a>
+  </ul>
+  <div class="panel-body"
+       *ngIf="school && school.vote_set.length==0">
+    인증샷을 등록한 유권자가 없습니다.
+  </div>
+  <div class="panel-footer text-center"
+       *ngIf="school && vote_counter<school.vote_set.length"
+       (click)="moreVotes()">
+    더 보기
+  </div>
+  <div class="panel-body" *ngIf="!school">Loading...</div>
+</div>
