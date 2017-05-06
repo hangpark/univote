@@ -1,8 +1,11 @@
+import { Vote } from './vote';
+
 export class School {
   id: number;
   name: string;
   vote_num: number;
   population: number;
+  vote_set: Vote[];
 
   get vote_rate(): number {
 

@@ -3,7 +3,8 @@
   <div class="panel-body" *ngIf="!schools.orig">Loading...</div>
   <table class="table" *ngIf="schools.orig">
     <tbody>
-      <tr *ngFor="let school of schools.vote_rate.list | slice:0:schools.vote_rate.counter">
+      <tr routerLink="/schools/{{school.id}}" class="link"
+          *ngFor="let school of schools.vote_rate.list | slice:0:schools.vote_rate.counter">
         <td>
           <img src="/assets/images/rank_{{getRanking(school, 'vote_rate')}}.png"
                *ngIf="getRanking(school, 'vote_rate') <= 3" />
@@ -25,7 +26,8 @@
   <div class="panel-body" *ngIf="!schools.orig">Loading...</div>
   <table class="table" *ngIf="schools.orig">
     <tbody>
-      <tr *ngFor="let school of schools.vote_num.list | slice:0:schools.vote_num.counter">
+      <tr routerLink="/schools/{{school.id}}" class="link"
+          *ngFor="let school of schools.vote_num.list | slice:0:schools.vote_num.counter">
         <td>
           <img src="/assets/images/rank_{{getRanking(school, 'vote_num')}}.png"
                *ngIf="getRanking(school, 'vote_num') <= 3" />
