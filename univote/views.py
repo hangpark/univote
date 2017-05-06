@@ -11,14 +11,6 @@ class SchoolSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class SchoolList(ListAPIView):
-    queryset = School.objects.all()
-    serializer_class = SchoolSerializer
-
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
-
-
 class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
@@ -30,6 +22,31 @@ class VoteSerializer(serializers.ModelSerializer):
         vote.school.vote_num += 1
         vote.school.save()
         return vote
+
+
+class SchoolNestedSerializer(serializers.ModelSerializer):
+    vote_set = VoteSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = School
+        fields = '__all__'
+
+
+class SchoolList(ListAPIView):
+    queryset = School.objects.all()
+    serializer_class = SchoolSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+
+class SchoolVoteList(RetrieveAPIView):
+    queryset = School.objects.all()
+    serializer_class = SchoolNestedSerializer
+    lookup_field = 'id'
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
 
 class VoteList(ListAPIView):
